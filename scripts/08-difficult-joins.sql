@@ -1,4 +1,4 @@
-CREATE TABLE a AS SELECT 2*i AS i FROM gs(1,100000) s(i);
+CREATE TABLE a AS SELECT 2*i AS i FROM generate_series(1,100000) s(i);
 
 ANALYZE a;
 

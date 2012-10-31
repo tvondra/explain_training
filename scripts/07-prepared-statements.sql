@@ -1,0 +1,7 @@
+CREATE TABLE a (val INT);
+INSERT INTO a SELECT 1 FROM generate_series(1,100000) s(i);
+INSERT INTO a SELECT 2;
+CREATE INDEX a_idx ON a(val);
+
+PREPARE select_a(int) AS SELECT * FROM a WHERE val = $1;
+EXPLAIN ANALYZE EXECUTE select_a(2);

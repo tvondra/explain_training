@@ -5,7 +5,7 @@ CREATE TABLE t2 (a INT, b INT, c INT, d INT);
 INSERT INTO t2
      SELECT
             MOD(i,50),              -- 50 hodnot (uniform)
-            MID(i,1000),            -- 1000 hodnot (uniform)
+            MOD(i,1000),            -- 1000 hodnot (uniform)
             1000 * pow(random(),2), -- 1000 hodnot (skewed)
             (CASE WHEN MOD(i,3) = 0 THEN NULL ELSE i END)
 FROM generate_series(1,1000000) s(i);
